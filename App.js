@@ -7,13 +7,13 @@ import { useParams } from 'react-router-dom';
 
 
 const MyComponent = () => {
-  const { apiUrl } = useParams();
+  const { Url } = useParams();
   const [numbers, setNumbers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(Url);
         setNumbers(response.data);
       } catch (error) {
         console.error('Error:', error);
@@ -21,7 +21,7 @@ const MyComponent = () => {
     };
 
     fetchData();
-  }, [apiUrl]);
+  }, [Url]);
 
   return (
     <div>
